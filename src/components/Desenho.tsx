@@ -7,6 +7,7 @@ register()
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import Loader from './Loader';
 
 interface Desenho {
   _id: number;
@@ -47,6 +48,12 @@ function Desenho(){
       window.removeEventListener("resize", handleResize)
     }
   }, [])
+
+  if (!desenho) {
+    return (
+        <Loader />
+      )
+  }
 
   return(
     <>

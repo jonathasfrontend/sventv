@@ -51,9 +51,7 @@ function Filme(){
 
   if(!filmes){
     return(
-      <div>
-        <Loader />
-      </div>
+      <Loader />
     )
   }
 

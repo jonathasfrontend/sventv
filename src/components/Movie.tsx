@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from "axios";
+import Loader from './Loader';
 
 interface Movie {
   id: number;
@@ -11,6 +12,7 @@ interface Movie {
 }
 
 function Movie() {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [movies, setMovies] = useState<Movie[]>([]);
   useEffect(() => {
     axios('https://api.themoviedb.org/3/movie/popular?api_key=506fadb0256c13349acc05dabebf9604&language=pt-BR&page=1')
@@ -20,14 +22,24 @@ function Movie() {
       .catch(error => {
         console.error("Error fetching movies:", error);
       });
-    }, []);
+    }, [])
+
+    const handleImageLoad = () => {
+      setImageLoaded(true);
+    };
 
   return(
     <div className="w-full h-[90vh] relative">
 
         <div className="w-full h-full absolute top-0 left-0 z-10">
+        {!imageLoaded && <Loader />}
         {movies.length > 0 && (
-          <img className="w-full h-full object-cover" src={'https://image.tmdb.org/t/p/original/'+movies[0].backdrop_path} alt="" />
+          <img
+            className={`w-full h-full object-cover ${imageLoaded ? 'visible' : 'hidden'}`}
+            src={`https://image.tmdb.org/t/p/original/${movies[0].backdrop_path}`}
+            alt=""
+            onLoad={handleImageLoad}
+          />
         )}
         </div>
 
@@ -42,11 +54,17 @@ function Movie() {
               <p className="text-base font-medium text-white">{movies[0].overview}</p>
             </div>
           )}
-          {movies.length > 0 && (
             <div className="w-[330px] h-[470px] flex justify-center items-center">
-              <img className="w-full h-full border-4" src={"https://image.tmdb.org/t/p/original/"+movies[0].poster_path} alt="" />
+            {!imageLoaded && <Loader />}
+            {movies.length > 0 && (
+              <img
+              className="w-full h-full border-4"
+              src={"https://image.tmdb.org/t/p/original/"+movies[0].poster_path}
+              alt=""
+              onLoad={handleImageLoad}
+              />
+            )}
             </div>
-          )}
 
         </div>
 
