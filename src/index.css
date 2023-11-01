@@ -1,0 +1,46 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  -webkit-font-smoothing: antialiased; /* or @apply antialiased */
+}
+
+.swiper-button-prev {
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 131%;
+  color: #ffffff;
+}
+.swiper-button-prev.swiper-button-disabled {
+  color: #000000;
+}
+.swiper-button-next.swiper-button-disabled {
+  color: #000000;
+}
+
+.swiper-button-next {
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 131%;
+  color: #ffffff;
+}
+
+.swiper-pagination-bullet{
+  background-color: #ffffff;
+  opacity: 1;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+  background-color: #006abc;
+}
+/* styles.css */
+.AccordionChevron {
+  transition: transform 300ms;
+}
+.AccordionTrigger[data-state='open'] > .AccordionChevron {
+  transform: rotate(180deg);
+}
