@@ -35,6 +35,7 @@ function App() {
           } />
           </Routes>
         </div>
+        
         <div className="w-full px-12">
           <Routes>
             <Route path="/filme/:id" element={
@@ -44,10 +45,23 @@ function App() {
               </>
             } />
             <Route path="/desenho/:id" element={
-            <Desenhopost />}
-            />
-            <Route path="/variedade/:id" element={<Variedadepost />} />
-            <Route path="/esporte/:id" element={<Esportepost />} />
+              <>
+                <Desenhopost />
+                <Desenho />
+              </>
+            } />
+            <Route path="/variedade/:id" element={
+              <>
+                <Variedadepost />
+                <Variedade />
+              </>
+            } />
+            <Route path="/esporte/:id" element={
+              <>
+                <Esportepost />
+                <Esporte />
+              </>
+            } />
           </Routes>
         </div>
       </div>

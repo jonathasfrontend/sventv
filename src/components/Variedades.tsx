@@ -67,8 +67,8 @@ function Variedade(){
           {variedade.map((filme) => (
             <SwiperSlide key={filme._id}>
                 <a 
-                // href={`/variedade/${filme._id}`}
-                href={filme.link}
+                href={`/variedade/${filme._id}`}
+                // href={filme.link}
                 className="w-full flex items-center justify-center bg-[#2a2a2f] h-[160px] p-5 rounded-md border-r-4 border-[#121214] text-white"
                 >
                   <img className="w-44 h-auto" src={filme.image} alt={filme.title} />
