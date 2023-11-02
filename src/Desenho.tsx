@@ -31,15 +31,17 @@ function Filme() {
   }
 
   return (
-    <div className="w-full h-4/5">
-        <h2 className="text-xl text-white font-bold text-center my-5">{filme.title}</h2>
+    <div className="w-full h-[600px] flex flex-col justify-center items-center">
+        <h2 className="text-xl text-white font-bold my-5">{filme.title}</h2>
         <iframe 
         src={filme.link} 
-        className="w-full h-full bg-white borde-none"
+        className="w-full h-full bg-black borde-none"
         scrolling='no' 
         allow="encrypted-media"
         allowFullScreen
-        ></iframe>
+        >
+          
+        </iframe>
     </div>
   );
 }
