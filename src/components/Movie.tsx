@@ -55,13 +55,11 @@ function Movie() {
             </div>
           )}
             <div className="w-[330px] h-[470px] flex justify-center items-center">
-            {!imageLoaded && <Loader />}
             {movies.length > 0 && (
               <img
               className="w-full h-full border-4"
               src={"https://image.tmdb.org/t/p/original/"+movies[0].poster_path}
               alt=""
-              onLoad={handleImageLoad}
               />
             )}
             </div>
