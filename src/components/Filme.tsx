@@ -29,7 +29,7 @@ function Filme(){
       });
     }, []);
 
-  const [slidePerView, setSlidePerView] = useState(3);
+  const [slidePerView, setSlidePerView] = useState(5);
 
   useEffect(() => {
     function handleResize(){
@@ -61,15 +61,15 @@ function Filme(){
         slidesPerView={slidePerView}
         pagination={{ clickable: true }}
         navigation
-        className="z-50 py-7"
+        loop={true}
+        className="z-50 py-8 mt-[-50px]"
       >
       
       {filmes.map((filme) => (
-      <SwiperSlide key={filme._id}>
+      <SwiperSlide key={filme._id} className="mr-1">
         <a 
-          // href={filme.link}
           href={`/filme/${filme._id}`}
-          className="w-full flex items-center justify-center bg-[#2a2a2f] h-[160px] p-5 rounded-md border-r-4 border-[#121214] text-white"
+          className="w-full flex items-center justify-center bg-[#2a2a2f] h-[160px] p-5 rounded-md text-white"
         >
           <img className="w-44 h-auto" src={filme.image} alt={filme.title} />
         </a>

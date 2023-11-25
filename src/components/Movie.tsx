@@ -43,7 +43,7 @@ function Movie() {
         )}
         </div>
 
-        <div className="w-full h-full flex items-center justify-between absolute z-20 px-12 bg-gradient-to-r from-[#000000b0]">
+        <div className="w-full h-full flex items-center justify-between absolute z-20 px-12 gradient-color">
         
         {movies.length > 0 && (
             <div key={movies[0].id} className="w-[50%] h-full flex justify-center flex-col">

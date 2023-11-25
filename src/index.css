@@ -31,11 +31,15 @@ body {
 }
 
 .swiper-pagination-bullet{
-  background-color: #ffffff;
+  width: 10px;
+  height: 2px;
+  border-radius: 0;
+  background-color: #383838;
+  margin: 0 1px !important;
   opacity: 1;
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active{
-  background-color: #006abc;
+  background-color: #ffffff;
 }
 /* styles.css */
 .AccordionChevron {
@@ -43,4 +47,8 @@ body {
 }
 .AccordionTrigger[data-state='open'] > .AccordionChevron {
   transform: rotate(180deg);
+}
+
+.gradient-color{
+  background: linear-gradient(0deg, #000000 5%, #000000ce 20%, #00000043 50%, #000000ce 100%);
 }

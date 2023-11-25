@@ -37,7 +37,7 @@ function Filme() {
         <h2 className="text-xl text-white font-bold my-5">{filme.title}</h2>
         <iframe 
         src={filme.link} 
-        className="w-full h-full bg-black borde-none"
+        className="w-full h-full bg-black borde-none mb-10 rounded-md overflow-hidden"
         scrolling='no' 
         allow="encrypted-media"
         allowFullScreen
