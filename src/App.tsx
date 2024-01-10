@@ -5,11 +5,13 @@ import Filmepost from './Filme';
 import Desenhopost from './Desenho';
 import Variedadepost from './Variedade';
 import Esportepost from './Esportes';
+import Bbbpost from './BBB';
 
 import Filme from "./components/Filme";
 import Desenho from "./components/Desenho";
 import Variedade from "./components/Variedades";
 import Esporte from "./components/Esporte";
+import Bbb from "./components/BBB";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Routes>
           <Route path="/" element={
             <>
+              <Bbb />
               <Filme />
               <Desenho />
               <Variedade />
@@ -60,6 +63,12 @@ function App() {
               <>
                 <Esportepost />
                 <Esporte />
+              </>
+            } />
+            <Route path="/bbb/:id" element={
+              <>
+                <Bbbpost />
+                <Bbb />
               </>
             } />
           </Routes>

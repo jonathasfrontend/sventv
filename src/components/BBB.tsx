@@ -9,20 +9,20 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import Loader from './Loader';
 
-interface Filmes {
+interface BBBCamItems {
   _id: number;
   title: string;
   link: string;
   image: string;
 }
 
-function Filme(){
-  const [filmes, setFilmes] = useState<Filmes[]>([]);
+function Bbb(){
+  const [bbbCam, setBbb] = useState<BBBCamItems[]>([]);
 
   useEffect(() => {
-    axios('https://apisventv.vercel.app/content/v1/filmes')
+    axios('https://apisventv.vercel.app/content/v1/bbb')
       .then(response => {
-        setFilmes(response.data.filmes);
+        setBbb(response.data.bbb);
       })
       .catch(error => {
         console.error("Error fetching movies:", error);
@@ -49,7 +49,7 @@ function Filme(){
     }
   }, [])
 
-  if(!filmes){
+  if(!bbbCam){
     return(
       <Loader />
     )
@@ -62,16 +62,17 @@ function Filme(){
         pagination={{ clickable: true }}
         navigation
         loop={true}
-        className="z-50 py-8"
+        className="z-50 py-8 mt-[-70px]"
       >
       
-      {filmes.map((filme) => (
-      <SwiperSlide key={filme._id} className="mr-1">
+      {bbbCam.map((bbb) => (
+      <SwiperSlide key={bbb._id} className="mr-1">
         <a 
-          href={`/filme/${filme._id}`}
-          className="w-full flex items-center justify-center bg-[#2a2a2f] h-[160px] p-5 rounded-md text-white"
+          href={`/bbb/${bbb._id}`}
+          className="w-full relative flex flex-col items-center justify-center overflow-hidden bg-[#2a2a2f] h-[160px] p-5 rounded-md text-white"
         >
-          <img className="w-44 h-auto" src={filme.image} alt={filme.title} />
+          <img className="w-full h-full object-cover absolute z-10" src={bbb.image} alt={bbb.title} />
+          <h1 className="bottom-1 font-semibold text-lg absolute z-20 drop-shadow-2xl" >{bbb.title}</h1>
         </a>
       </SwiperSlide>
     ))}
@@ -81,4 +82,4 @@ function Filme(){
   )
 }
 
-export default Filme
+export default Bbb

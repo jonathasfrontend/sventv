@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './components/Loader';
 
-interface Variedade {
+interface BbbCamItems {
   _id: number;
   title: string;
   link: string;
@@ -12,31 +12,29 @@ interface Variedade {
 
 function Filme() {
   const { id } = useParams();
-  const [filme, setFilme] = useState<Variedade | null>(null);
+  const [bbbCam, setBbbcam] = useState<BbbCamItems | null>(null);
 
   useEffect(() => {
-    axios.get(`https://apisventv.vercel.app/content/v1/variedades/${id}`)
+    axios.get(`https://apisventv.vercel.app/content/v1/bbb/${id}`)
       .then(response => {
-        setFilme(response.data.variedades);
+        setBbbcam(response.data.bbb);
       })
       .catch(error => {
         console.error("Error fetching filme details:", error);
       });
   }, [id]);
 
-  if (!filme) {
+  if (!bbbCam) {
     return (
-      <div>
         <Loader />
-      </div>
       )
   }
 
   return (
     <div className="w-full h-[600px] flex flex-col justify-center items-center">
-        <h2 className="text-xl text-white font-bold my-5">{filme.title}</h2>
+        <h2 className="text-xl text-white font-bold my-5">{bbbCam.title}</h2>
         <iframe 
-        src={filme.link} 
+        src={bbbCam.link} 
         className="w-full h-full bg-black borde-none mb-10 rounded-md overflow-hidden"
         scrolling='no' 
         allow="encrypted-media"
